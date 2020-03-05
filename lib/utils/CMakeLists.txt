@@ -1,0 +1,16 @@
+ADD_LIBRARY(utils SHARED src/Utils.cpp)
+ADD_LIBRARY(example::utils ALIAS utils)
+TARGET_INCLUDE_DIRECTORIES(utils 
+	PRIVATE 
+		src 
+	PUBLIC 
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+	$<INSTALL_INTERFACE:include>
+		)
+TARGET_COMPILE_FEATURES(utils PUBLIC cxx_std_17)
+
+exampleInstall(utils)
+
+ADD_SUBDIRECTORY(test)
+ADD_SUBDIRECTORY(benchmark)
