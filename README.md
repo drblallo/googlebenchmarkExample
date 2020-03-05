@@ -5,7 +5,7 @@ A easy setup for google test and google benchmark
 ## usage
 
 ```bash
-	git submodule --recursive init
+	git submodule update --recursive --init
 	source environement.sh
 	mkdir release
 	cd release
